@@ -1,33 +1,42 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { Router, Routes, Navigate, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/posts">PostLink</Link>
+          </li>
+          <li>
+            <Link to="/posts/:id">PostDetail</Link>
+          </li>
+          <li>
+            <Link to="/posts/new">PostNew</Link>
+          </li>
+          <li>
+            <Link to="/posts/edit/:id">PostEdit</Link>
+          </li>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+        </ul>
       </div>
-      <h1>Vite + React🫠🥖</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/" element={<h1>Home page</h1>} />
+        <Route path="/posts" element={<h1>Post List Page</h1>} />
+        <Route path="/posts/:id" element={<h1>Post Detail Page</h1>} />
+        <Route path="/posts/new" element={<h1>Post New Page</h1>} />
+        <Route path="/posts/edit/:id" element={<h1>Post Edit Page</h1>} />
+        <Route path="/profile" element={<h1>Profile</h1>} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
     </>
   );
 }

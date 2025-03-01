@@ -7,7 +7,6 @@ export default function PostNew() {
     <>
       <Header />
       <PostForm />
-      <Footer />
     </>
   );
 }

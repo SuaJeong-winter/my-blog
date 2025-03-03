@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { app } from "./firebaseApp";
+import { app, db } from "./firebaseApp";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactTostify.css";
@@ -8,6 +8,7 @@ import Router from "./components/Router";
 import Loader from "./components/Loader";
 
 function App() {
+  console.log(db);
   const auth = getAuth(app);
 
   // auth를 체크하기 전에(initialize하기 전에) loader을 띄워주는 용도

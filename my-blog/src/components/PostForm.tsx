@@ -37,13 +37,13 @@ export default function PostForm() {
         toast?.success("게시글을 수정했습니다");
         navigate(`/post/${post.id}`);
       } else {
-        // 기존에 post 데이터가 없다면면
+        // 기존에 post 데이터가 없다면
         // firestore데이터 생성
         await addDoc(collection(db, "posts"), {
           title: title,
           summary: summary,
           content: content,
-          createAt: new Date()?.toLocaleDateString("ko", {
+          createdAt: new Date()?.toLocaleDateString("ko", {
             hour: "2-digit",
             minute: "2-digit",
             second: "2-digit",

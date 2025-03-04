@@ -1,4 +1,11 @@
-import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { data, Link } from "react-router-dom";
 import { db } from "../firebaseApp";
@@ -29,9 +36,10 @@ export default function PostList({ hasNavigation = true }: PostListProps) {
 
   // 페이지가 새로 마운트 될 때마다 모든 포스트를 firestore query를 통해 가져오도록
   const getPosts = async () => {
-    const datas = await getDocs(collection(db, "posts"));
-
     setPosts([]);
+    let postRef = collection(db, "posts");
+    let postQuery = query(postRef, orderBy("createdAt", "asc"));
+    const datas = await getDocs(postQuery);
     datas?.forEach((doc) => {
       console.log(doc.data(), doc.id);
       const dataObj = { ...doc.data(), id: doc.id };
@@ -47,6 +55,8 @@ export default function PostList({ hasNavigation = true }: PostListProps) {
       getPosts(); //변경된 postList를 다시 호출
     }
   };
+
+  console.log(posts);
 
   useEffect(() => {
     getPosts();

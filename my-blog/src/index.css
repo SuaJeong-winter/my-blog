@@ -478,6 +478,27 @@ input:checked + .carousel__slide-container .nav label {
   border-radius: 0.3rem;
 }
 
+.form__simple {
+  width: 100%;
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+  gap: 25px;
+}
+
+.form__deco-line {
+  width: 40%;
+  border-top: 1px solid lightgray;
+  margin-top: 10px;
+}
+
+.form__btn-google,
+.form__btn-github {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
 /* loader */
 .loader {
   width: 48px;

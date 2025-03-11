@@ -41,7 +41,7 @@ my-blog
 ### 메인 페이지_다크모드
 <img width="939" alt="image" src="https://github.com/user-attachments/assets/0ac14124-684c-447e-b877-1df51bc79e23" width="800px"/>
 
-Context API를 통해 다크모드를 구현했습다
+Context API를 통해 다크모드를 구현했습니다
 
 ### 게시글 페이지
 <img width="949" alt="image" src="https://github.com/user-attachments/assets/ad501427-d990-48b1-9c4a-800bb1157a29" width="800px" />

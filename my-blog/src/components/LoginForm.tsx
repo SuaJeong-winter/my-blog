@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { app } from "../firebaseApp";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  getRedirectResult,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signInWithRedirect,
+} from "firebase/auth";
+
+import { FcGoogle } from "react-icons/fc";
+import { IoLogoGithub } from "react-icons/io";
 
 export default function LoginForm() {
   const [error, setError] = useState<string>("");
@@ -48,6 +59,27 @@ export default function LoginForm() {
       } else {
         setError("");
       }
+    }
+  };
+
+  const loginSocial = async (socialProvider: string) => {
+    const auth = getAuth();
+    let provider: GoogleAuthProvider | GithubAuthProvider;
+    if (socialProvider === "google") {
+      provider = new GoogleAuthProvider();
+    } else if (socialProvider === "github") {
+      provider = new GithubAuthProvider();
+    } else {
+      toast.error("지원하지 않는 로그인 방식입니다.");
+      return; // 잘못된 값 방지 처리
+    }
+
+    try {
+      await signInWithPopup(auth, provider);
+      toast.success(`${socialProvider} 계정으로 로그인했습니다.`);
+      navigate("/");
+    } catch (error: any) {
+      toast.error(error?.code);
     }
   };
 
@@ -96,6 +128,23 @@ export default function LoginForm() {
             value="로그인"
             className="form__btn--submit"
             disabled={error?.length > 0}
+          />
+        </div>
+        <div className="form__simple">
+          <div className="form__deco-line"></div>
+          간편 로그인
+          <div className="form__deco-line"></div>
+        </div>
+
+        <div className="form__simple">
+          <FcGoogle
+            className="form__btn-google"
+            onClick={() => loginSocial("google")}
+          />
+
+          <IoLogoGithub
+            className="form__btn-github"
+            onClick={() => loginSocial("github")}
           />
         </div>
       </form>

@@ -26,7 +26,7 @@ export default function Profile() {
         <div className="flex__box-lg">
           <div className="profile__image" />
           <div>
-            <div className="prfile__email">{user?.email}</div>
+            <div className="profile__email">{user?.email}</div>
             <div className="profile__name">{user?.displayName || "사용자"}</div>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import { getAuth, signOut } from "firebase/auth";
-import { Link } from "react-router-dom";
 import { app } from "../firebaseApp";
 import { toast } from "react-toastify";
 import { useContext } from "react";

@@ -7,8 +7,8 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { act, useContext, useEffect, useState } from "react";
-import { data, Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../firebaseApp";
 import AuthContext from "../context/AuthContext";
 import { toast } from "react-toastify";
@@ -140,7 +140,7 @@ export default function PostList({
       )}
       <div className="post__list">
         {posts?.length > 0 ? (
-          posts.map((post, index) => (
+          posts.map((post) => (
             <div key={post?.id} className="post__box">
               <Link to={`/posts/${post?.id}`}>
                 <div className="post__profile-box">

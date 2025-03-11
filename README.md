@@ -29,23 +29,23 @@ my-blog
 └── vite.config.ts
 ```
 
-##📸 화면 캡처
-###메인 페이지
+## 📸 화면 캡처
+### 메인 페이지
 <img width="931" alt="image" src="https://github.com/user-attachments/assets/fee51453-9e47-4b4d-b1a6-89c529aee71b" width="800px" />
 모든 계정의 글들을 확인할 수 있습니다. 
 필터링에 따라 내가 작성한 글, FE, BE, WEB, NATIVE에 해당하는 글만을 확인하는 것도 가능합니다
 다른 계정의 글에 대해서는 글 읽기, 댓글 달기가 가능하며
 본인의 글에 대해서는 글 작성, 수정, 삭제가 가능합니다
 
-###메인 페이지_다크모드
+### 메인 페이지_다크모드
 <img width="939" alt="image" src="https://github.com/user-attachments/assets/0ac14124-684c-447e-b877-1df51bc79e23" width="800px"/>
 Context API를 통해 다크모드를 구현했습다
 
-###게시글 페이지
+### 게시글 페이지
 <img width="949" alt="image" src="https://github.com/user-attachments/assets/ad501427-d990-48b1-9c4a-800bb1157a29" width="800px" />
 게시글 확인 및 댓글 작성이 가능합니다
 
-###프로필 페이지
+### 프로필 페이지
 <img width="948" alt="image" src="https://github.com/user-attachments/assets/33aaf94a-b187-4067-9346-e8f670fd101d" width="800px" />
 본인의 프로필 정보 및 내가 쓴 글의 목록 확인이 가능합니다
 
